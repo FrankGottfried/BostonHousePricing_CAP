@@ -1,0 +1,26 @@
+{
+    "PAL_PARTITION": {
+        "target": {
+          "object": "PAL_PARTITION",
+          "schema": "_SYS_AFL"
+        }
+      },
+    "PAL_UNIFIED_CLASSIFICATION": {
+      "target": {
+        "object": "PAL_UNIFIED_CLASSIFICATION",
+        "schema": "_SYS_AFL"
+      }
+    },
+    "PAL_UNIFIED_CLASSIFICATION_PREDICT": {
+      "target": {
+        "object": "PAL_UNIFIED_CLASSIFICATION_PREDICT",
+        "schema": "_SYS_AFL"
+      }
+    },
+    "DUMMY": {
+      "target": {
+        "object": "DUMMY",
+        "schema": "SYS"
+      }
+    }
+}

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="V_DATASET" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="true">
+<descriptions defaultDescription="V_DATASET"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="BOSTON_HOUSING_PRICES">
+    <resourceUri>BOSTON_HOUSING_PRICES</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews/>
+
+<logicalModel id="BOSTON_HOUSING_PRICES">
+  <attributes>
+    <attribute id="CRIM" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CRIM"/>
+      <keyMapping columnObjectName="BOSTON_HOUSING_PRICES" columnName="CRIM"/>
+    </attribute>
+    <attribute id="ZN" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ZN"/>
+      <keyMapping columnObjectName="BOSTON_HOUSING_PRICES" columnName="ZN"/>
+    </attribute>
+    <attribute id="INDUS" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="INDUS"/>
+      <keyMapping columnObjectName="BOSTON_HOUSING_PRICES" columnName="INDUS"/>
+    </attribute>
+    <attribute id="CHAS" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CHAS"/>
+      <keyMapping columnObjectName="BOSTON_HOUSING_PRICES" columnName="CHAS"/>
+    </attribute>
+    <attribute id="NOX" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="NOX"/>
+      <keyMapping columnObjectName="BOSTON_HOUSING_PRICES" columnName="NOX"/>
+    </attribute>
+    <attribute id="RM" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="RM"/>
+      <keyMapping columnObjectName="BOSTON_HOUSING_PRICES" columnName="RM"/>
+    </attribute>
+    <attribute id="AGE" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="AGE"/>
+      <keyMapping columnObjectName="BOSTON_HOUSING_PRICES" columnName="AGE"/>
+    </attribute>
+    <attribute id="DIS" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="DIS"/>
+      <keyMapping columnObjectName="BOSTON_HOUSING_PRICES" columnName="DIS"/>
+    </attribute>
+    <attribute id="RAD" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="RAD"/>
+      <keyMapping columnObjectName="BOSTON_HOUSING_PRICES" columnName="RAD"/>
+    </attribute>
+    <attribute id="TAX" order="10" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="TAX"/>
+      <keyMapping columnObjectName="BOSTON_HOUSING_PRICES" columnName="TAX"/>
+    </attribute>
+    <attribute id="PTRATIO" order="11" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PTRATIO"/>
+      <keyMapping columnObjectName="BOSTON_HOUSING_PRICES" columnName="PTRATIO"/>
+    </attribute>
+    <attribute id="BLACK" order="12" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="BLACK"/>
+      <keyMapping columnObjectName="BOSTON_HOUSING_PRICES" columnName="BLACK"/>
+    </attribute>
+    <attribute id="LSTAT" order="13" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="LSTAT"/>
+      <keyMapping columnObjectName="BOSTON_HOUSING_PRICES" columnName="LSTAT"/>
+    </attribute>
+    <attribute id="MEDV" order="14" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="MEDV"/>
+      <keyMapping columnObjectName="BOSTON_HOUSING_PRICES" columnName="MEDV"/>
+    </attribute>
+    <attribute id="ID" order="15" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID"/>
+      <keyMapping columnObjectName="BOSTON_HOUSING_PRICES" columnName="ID"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+    
+  </shapes>
+</layout>
+</Calculation:scenario>
