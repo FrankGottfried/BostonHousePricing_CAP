@@ -1,7 +1,7 @@
 //namespace app.interactions;
 
 entity PAL_PARAMETER_TBL {
-  PARAM_NAME : hana.CHAR(256);
+  PARAM_NAME : String(256);
   INT_VALUE : Integer;
   DOUBLE_VALUE : Double; 
   STRING_VALUE : String(1000);

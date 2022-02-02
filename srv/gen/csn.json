@@ -4,7 +4,7 @@
       "kind": "entity",
       "elements": {
         "PARAM_NAME": {
-          "type": "cds.hana.CHAR",
+          "type": "cds.String",
           "length": 256
         },
         "INT_VALUE": {

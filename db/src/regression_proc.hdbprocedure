@@ -1,0 +1,66 @@
+PROCEDURE REGRESSION_PROC()
+
+LANGUAGE SQLSCRIPT
+SQL SECURITY INVOKER
+AS
+
+begin
+
+-- prepare parition
+	TRUNCATE TABLE PAL_PARAMETER_TBL;
+
+	INSERT INTO PAL_PARAMETER_TBL VALUES ('PARTITION_METHOD',0,null,null); 
+	INSERT INTO PAL_PARAMETER_TBL VALUES ('RANDOM_SEED',23,null,null);
+	INSERT INTO PAL_PARAMETER_TBL VALUES ('TRAINING_PERCENT', null,0.8,null);
+	INSERT INTO PAL_PARAMETER_TBL VALUES ('TESTING_PERCENT', null,0.2,null);
+	INSERT INTO PAL_PARAMETER_TBL VALUES ('VALIDATION_PERCENT', null,0.0,null);
+	
+	params = select * from PAL_PARAMETER_TBL;
+
+    dataset = select "ID", "CRIM", "ZN", "INDUS", "CHAS", "NOX", "RM", "AGE", "DIS", "RAD", "TAX", "PTRATIO", "BLACK", "LSTAT", "MEDV" from "BOSTON_HOUSING_PRICES";
+
+--	select * from :dataset;
+--	select * from :params;
+
+  	call PAL_PARTITION(:dataset, :params, rresult );
+--	select * from :rresult;
+					
+	train_dataset = select "T1"."ID", "T1"."CRIM", "T1"."ZN", "T1"."INDUS", "T1"."CHAS", "T1"."NOX", "T1"."RM", "T1"."AGE", "T1"."DIS", "T1"."RAD", "T1"."TAX", 
+	                 "T1"."PTRATIO", "T1"."BLACK", "T1"."LSTAT", "T1"."MEDV" from "BOSTON_HOUSING_PRICES"  as T1
+	                 inner join :rresult as T2
+	                 on "T1"."ID"  = "T2"."ID"
+					 WHERE T2."PARTITION_TYPE" = '1';
+					 
+	test_dataset = select "T1"."ID", "T1"."CRIM", "T1"."ZN", "T1"."INDUS", "T1"."CHAS", "T1"."NOX", "T1"."RM", "T1"."AGE", "T1"."DIS", "T1"."RAD", "T1"."TAX", 
+	                 "T1"."PTRATIO", "T1"."BLACK", "T1"."LSTAT", "T1"."MEDV" from "BOSTON_HOUSING_PRICES"  as T1
+	                 inner join :rresult as T2
+	                 on "T1"."ID"  = "T2"."ID"
+					 WHERE T2."PARTITION_TYPE" = '2';
+--   select count(*) from :dataset;
+--   select count(*) from :train_dataset;
+--   select count(*) from :test_dataset;
+
+   TRUNCATE TABLE PAL_PARAMETER_TBL;
+
+    INSERT INTO PAL_PARAMETER_TBL VALUES ('FUNCTION',null,null,'HGBT');
+	INSERT INTO PAL_PARAMETER_TBL VALUES ('KEY',1,null,null); 
+	INSERT INTO PAL_PARAMETER_TBL VALUES ('PARTITION_METHOD',0,null,null); 
+
+	params = select * from PAL_PARAMETER_TBL;
+
+	call PAL_UNIFIED_REGRESSION(:train_dataset, :params, model, stats, optimal_params, partition_results, place_holder1, place_holder2 );
+
+--	select * from :model;
+--	select * from :stats;
+--	select * from :optimal_params;
+--	select * from :partition_results;
+
+	call PAL_UNIFIED_REGRESSION_PREDICT(:test_dataset, :model, :params, resultset, place_holder);
+--	select * from :resultset;
+ 
+	select "T1"."ID", "T1"."SCORE", "T2"."MEDV" from :resultset as T1
+		inner join :test_dataset as T2
+		on "T1"."ID" = "T2"."ID";
+ 
+
+end

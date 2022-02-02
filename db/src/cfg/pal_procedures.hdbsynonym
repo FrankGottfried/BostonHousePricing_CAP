@@ -1,26 +1,38 @@
 {
-    "PAL_PARTITION": {
-        "target": {
-          "object": "PAL_PARTITION",
-          "schema": "_SYS_AFL"
-        }
-      },
-    "PAL_UNIFIED_CLASSIFICATION": {
-      "target": {
-        "object": "PAL_UNIFIED_CLASSIFICATION",
-        "schema": "_SYS_AFL"
-      }
-    },
-    "PAL_UNIFIED_CLASSIFICATION_PREDICT": {
-      "target": {
-        "object": "PAL_UNIFIED_CLASSIFICATION_PREDICT",
-        "schema": "_SYS_AFL"
-      }
-    },
-    "DUMMY": {
-      "target": {
-        "object": "DUMMY",
-        "schema": "SYS"
-      }
+  "PAL_PARTITION": {
+    "target": {
+      "object": "PAL_PARTITION",
+      "schema": "_SYS_AFL"
     }
+  },
+  "PAL_UNIFIED_CLASSIFICATION": {
+    "target": {
+      "object": "PAL_UNIFIED_CLASSIFICATION",
+      "schema": "_SYS_AFL"
+    }
+  },
+  "PAL_UNIFIED_CLASSIFICATION_PREDICT": {
+    "target": {
+      "object": "PAL_UNIFIED_CLASSIFICATION_PREDICT",
+      "schema": "_SYS_AFL"
+    }
+  },
+  "PAL_UNIFIED_REGRESSION": {
+    "target": {
+      "object": "PAL_UNIFIED_REGRESSION",
+      "schema": "_SYS_AFL"
+    }
+  },
+  "PAL_UNIFIED_REGRESSION_PREDICT": {
+    "target": {
+      "object": "PAL_UNIFIED_REGRESSION_PREDICT",
+      "schema": "_SYS_AFL"
+    }
+  },
+  "PAL_UNIFIED_REGRESSION_SCORE": {
+    "target": {
+      "object": "PAL_UNIFIED_REGRESSION_SCORE",
+      "schema": "_SYS_AFL"
+    }
+  }
 }
