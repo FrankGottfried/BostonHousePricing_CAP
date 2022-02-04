@@ -92,6 +92,24 @@
       "@source": "interaction_srv.cds",
       "kind": "service"
     },
+    "CatalogService.PredictionResult": {
+      "kind": "type",
+      "elements": {
+        "ID": {
+          "type": "cds.Integer"
+        },
+        "SCORE": {
+          "type": "cds.Decimal",
+          "precision": 10,
+          "scale": 3
+        },
+        "MEDV": {
+          "type": "cds.Decimal",
+          "precision": 10,
+          "scale": 3
+        }
+      }
+    },
     "CatalogService.V_Dataset": {
       "kind": "entity",
       "@readonly": true,
@@ -165,6 +183,12 @@
         "ID": {
           "type": "cds.Integer"
         }
+      }
+    },
+    "CatalogService.predict": {
+      "kind": "function",
+      "returns": {
+        "type": "CatalogService.PredictionResult"
       }
     }
   },
